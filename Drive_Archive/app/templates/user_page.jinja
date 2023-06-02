@@ -1,0 +1,11 @@
+{% extends "base.jinja" %}
+
+
+{% block content %}
+<h3>{{ user.username }}'s Page </h3>
+{% include "./includes/user_search.jinja" %}
+{% for post in user.post %}
+<p>{{ post.body }}</p>
+<p> <small>{{ post.timestamp }}</small></p>
+{% endfor %}
+{% endblock %}
