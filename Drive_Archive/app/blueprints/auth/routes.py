@@ -32,6 +32,7 @@ def register():
         if not email and not user:
             u = User(username=form.username.data,email=form.email.data)
             u.password = u.hash_password(form.password.data)
+            u.add_token()
             u.commit()
             flash(f"{form.username.data} registered" , "success")
             return redirect(url_for("main.home"))
